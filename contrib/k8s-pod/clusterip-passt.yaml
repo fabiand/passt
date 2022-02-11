@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: passt
+  labels:
+    app: passt
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: passt
+  template:
+    metadata:
+      labels:
+        app: passt
+    spec:
+      containers:
+      - name: passt
+        image: quay.io/fabiand/passt
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: passt
+spec:
+  selector:
+    app: passt
+  ports:
+    - protocol: TCP
+      port: 8080
+
