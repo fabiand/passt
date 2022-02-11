@@ -25,9 +25,9 @@ kind: Service
 metadata:
   name: passt
 spec:
+  type: ClusterIP
   selector:
     app: passt
   ports:
     - protocol: TCP
       port: 8080
-

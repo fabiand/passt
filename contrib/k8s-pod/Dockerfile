@@ -6,3 +6,5 @@ RUN dnf install -y qemu-system-x86
 RUN dnf install -y iproute
 
 CMD bash -x /passt/doc/demo.sh
+
+# & Here run qemu with qrap
